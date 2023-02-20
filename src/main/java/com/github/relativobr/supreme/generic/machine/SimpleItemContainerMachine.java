@@ -23,7 +23,7 @@ public class SimpleItemContainerMachine extends MediumContainerMachine {
     @Nonnull
     @Override
     public List<ItemStack> getDisplayRecipes() {
-        List<ItemStack> displayRecipes = new ArrayList();
+        List<ItemStack> displayRecipes = new ArrayList<>();
         machineRecipes.forEach(recipe -> {
             displayRecipes.add(recipe.getFirstItemInput());
             displayRecipes.add(recipe.getFirstItemOutput());

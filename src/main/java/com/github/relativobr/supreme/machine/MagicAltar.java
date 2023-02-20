@@ -1,19 +1,15 @@
 package com.github.relativobr.supreme.machine;
 
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.generic.machine.MediumContainerMachine;
 import com.github.relativobr.supreme.generic.recipe.AbstractItemRecipe;
-import com.github.relativobr.supreme.resource.SupremeComponents;
 import com.github.relativobr.supreme.resource.magical.SupremeAttribute;
-import com.github.relativobr.supreme.resource.magical.SupremeCetrus;
-import com.github.relativobr.supreme.util.SupremeItemStack;
-import com.github.relativobr.supreme.util.UtilEnergy;
+
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.bukkit.Material;
@@ -23,32 +19,20 @@ import org.springframework.scheduling.annotation.Async;
 @Async
 public class MagicAltar extends MediumContainerMachine {
 
-  public static final SlimefunItemStack MAGIC_ALTAR_MACHINE = new SupremeItemStack("SUPREME_MAGIC_ALTAR_I",
-      Material.SMOKER, "&bMagic Altar", "", "&fCraft Rune and Magical Items", "",
-      LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE), LoreBuilder.speed(1),
-      UtilEnergy.energyPowerPerSecond(20), "", "&3Supreme Machine");
   public static final ItemStack[] RECIPE_MAGIC_ALTAR_MACHINE = new ItemStack[]{SlimefunItems.ANCIENT_PEDESTAL,
-      SupremeComponents.SYNTHETIC_RUBY, SlimefunItems.ANCIENT_PEDESTAL, SupremeComponents.CONVEYANCE_MACHINE,
-      SlimefunItems.ANCIENT_ALTAR, SupremeComponents.CONVEYANCE_MACHINE, SlimefunItems.ANCIENT_PEDESTAL,
-      SupremeComponents.INDUCTOR_MACHINE, SlimefunItems.ANCIENT_PEDESTAL};
+      SupremeItems.SYNTHETIC_RUBY, SlimefunItems.ANCIENT_PEDESTAL, SupremeItems.CONVEYANCE_MACHINE,
+      SlimefunItems.ANCIENT_ALTAR, SupremeItems.CONVEYANCE_MACHINE, SlimefunItems.ANCIENT_PEDESTAL,
+      SupremeItems.INDUCTOR_MACHINE, SlimefunItems.ANCIENT_PEDESTAL};
 
-  public static final SlimefunItemStack MAGIC_ALTAR_MACHINE_II = new SupremeItemStack("SUPREME_MAGIC_ALTAR_II",
-      Material.SMOKER, "&bMagic Altar II", "", "&fAdvanced Craft Rune and Magical Items", "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(5),
-      UtilEnergy.energyPowerPerSecond(100), "", "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_MAGIC_ALTAR_MACHINE_II = new ItemStack[]{SupremeComponents.THORNERITE,
-      SupremeCetrus.CETRUS_AQUA, SupremeComponents.THORNERITE, SupremeCetrus.CETRUS_VENTUS,
-      MagicAltar.MAGIC_ALTAR_MACHINE, SupremeCetrus.CETRUS_LUX, SupremeComponents.THORNERITE,
-      SupremeCetrus.CETRUS_IGNIS, SupremeComponents.THORNERITE};
+  public static final ItemStack[] RECIPE_MAGIC_ALTAR_MACHINE_II = new ItemStack[]{SupremeItems.THORNERITE,
+      SupremeItems.CETRUS_AQUA, SupremeItems.THORNERITE, SupremeItems.CETRUS_VENTUS,
+      SupremeItems.MAGIC_ALTAR_MACHINE, SupremeItems.CETRUS_LUX, SupremeItems.THORNERITE,
+      SupremeItems.CETRUS_IGNIS, SupremeItems.THORNERITE};
 
-  public static final SlimefunItemStack MAGIC_ALTAR_MACHINE_III = new SupremeItemStack("SUPREME_MAGIC_ALTAR_III",
-      Material.SMOKER, "&bMagic Altar III", "", "&fAdvanced Craft Rune and Magical Items", "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(15),
-      UtilEnergy.energyPowerPerSecond(300), "", "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_MAGIC_ALTAR_MACHINE_III = new ItemStack[]{SupremeComponents.THORNERITE,
-      SupremeAttribute.getMagic(), SupremeComponents.THORNERITE, SupremeComponents.SUPREME,
-      MagicAltar.MAGIC_ALTAR_MACHINE_II, SupremeComponents.SUPREME, SupremeComponents.CRYSTALLIZER_MACHINE,
-      SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CRYSTALLIZER_MACHINE};
+  public static final ItemStack[] RECIPE_MAGIC_ALTAR_MACHINE_III = new ItemStack[]{SupremeItems.THORNERITE,
+      SupremeAttribute.getMagic(), SupremeItems.THORNERITE, SupremeItems.SUPREME,
+      SupremeItems.MAGIC_ALTAR_MACHINE_II, SupremeItems.SUPREME, SupremeItems.CRYSTALLIZER_MACHINE,
+      SupremeItems.CETRUS_LUMIUM, SupremeItems.CRYSTALLIZER_MACHINE};
 
   public static final AbstractItemRecipe RECIPE_RUNE_AIR = new AbstractItemRecipe(
       new ItemStack[]{new ItemStack(Material.FEATHER), new ItemStack(SlimefunItems.MAGIC_LUMP_1),

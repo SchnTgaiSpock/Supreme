@@ -5,23 +5,19 @@ import com.github.relativobr.supreme.generic.machine.SimpleItemContainerMachine;
 import com.github.relativobr.supreme.generic.recipe.InventoryRecipe;
 import com.github.relativobr.supreme.generic.recipe.AbstractItemRecipe;
 import com.github.relativobr.supreme.Supreme;
-import com.github.relativobr.supreme.resource.SupremeComponents;
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.resource.mobtech.MobTech;
 import com.github.relativobr.supreme.util.ItemGroups;
-import com.github.relativobr.supreme.util.SupremeItemStack;
+
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.relativobr.supreme.util.UtilEnergy;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Radioactive;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Radioactivity;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,20 +45,12 @@ import org.springframework.scheduling.annotation.Async;
 @Async
 public class TechGenerator extends SimpleItemContainerMachine implements Radioactive {
 
-  public static final SlimefunItemStack TECH_GENERATOR = new SupremeItemStack(
-      "SUPREME_TECH_GENERATOR", Material.LOOM,
-      "&bTech Generator", "", "&fUsing power and bees/golem/zombie, ", "&fslowly generates "
-      + "materials.", "",
-      LoreBuilder.radioactive(Radioactivity.LOW), "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
-      UtilEnergy.energyPowerPerTick(2000), "", "&3Supreme Machine");
-
-  public static final ItemStack[] RECIPE_TECH_GENERATOR = {SupremeComponents.INDUCTIVE_MACHINE,
-      SupremeComponents.SYNTHETIC_RUBY, SupremeComponents.INDUCTIVE_MACHINE,
+  public static final ItemStack[] RECIPE_TECH_GENERATOR = {SupremeItems.INDUCTIVE_MACHINE,
+      SupremeItems.SYNTHETIC_RUBY, SupremeItems.INDUCTIVE_MACHINE,
       SlimefunItems.REINFORCED_ALLOY_INGOT,
       new ItemStack(Material.LOOM), SlimefunItems.REINFORCED_ALLOY_INGOT,
-      SupremeComponents.CARRIAGE_MACHINE,
-      SlimefunItems.HEATING_COIL, SupremeComponents.CARRIAGE_MACHINE};
+      SupremeItems.CARRIAGE_MACHINE,
+      SlimefunItems.HEATING_COIL, SupremeItems.CARRIAGE_MACHINE};
 
   public static final List<AbstractItemRecipe> receitasParaProduzir = new ArrayList<>();
   private Map<Block, ItemStack> processing = new HashMap<Block, ItemStack>();
@@ -106,11 +94,11 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
 
   private static ItemStack getCardTier(int tierCard) {
     if (tierCard >= 3) {
-      return SupremeComponents.CENTER_CARD_ULTIMATE;
+      return SupremeItems.CENTER_CARD_ULTIMATE;
     } else if (tierCard == 2) {
-      return SupremeComponents.CENTER_CARD_ADVANCED;
+      return SupremeItems.CENTER_CARD_ADVANCED;
     } else {
-      return SupremeComponents.CENTER_CARD_SIMPLE;
+      return SupremeItems.CENTER_CARD_SIMPLE;
     }
   }
 
@@ -408,7 +396,7 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
   @Nonnull
   @Override
   public List<ItemStack> getDisplayRecipes() {
-    List<ItemStack> displayRecipes = new ArrayList();
+    List<ItemStack> displayRecipes = new ArrayList<>();
     this.getRecipeShow()
         .stream().filter(Objects::nonNull)
         .forEach(recipe -> {

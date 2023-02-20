@@ -1,23 +1,19 @@
 package com.github.relativobr.supreme.machine;
 
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.generic.machine.SimpleItemWithLargeContainerMachine;
 import com.github.relativobr.supreme.machine.recipe.VirtualAquariumMachineRecipe;
-import com.github.relativobr.supreme.resource.SupremeComponents;
 import com.github.relativobr.supreme.resource.magical.SupremeAttribute;
-import com.github.relativobr.supreme.resource.magical.SupremeCetrus;
-import com.github.relativobr.supreme.util.SupremeItemStack;
 import com.github.relativobr.supreme.util.UtilMachine;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -43,38 +39,24 @@ import org.springframework.scheduling.annotation.Async;
 @Async
 public class VirtualAquarium extends SimpleItemWithLargeContainerMachine {
 
-  public static final SlimefunItemStack VIRTUAL_AQUARIUM_MACHINE = new SupremeItemStack("SUPREME_VIRTUAL_AQUARIUM_I",
-      Material.DARK_PRISMARINE, "&bVirtual Aquarium", "", "&fThis machine allows you to collect ",
-      "&f items that are collected at sea.", "", LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
-      LoreBuilder.speed(1), LoreBuilder.powerBuffer(1000), LoreBuilder.powerPerSecond(20), "", "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_VIRTUAL_AQUARIUM_MACHINE = new ItemStack[]{SupremeComponents.SYNTHETIC_RUBY,
-      new ItemStack(Material.FISHING_ROD), SupremeComponents.SYNTHETIC_RUBY, SupremeComponents.INDUCTIVE_MACHINE,
-      SupremeComponents.PETRIFIER_MACHINE, SupremeComponents.INDUCTIVE_MACHINE, SupremeComponents.ADAMANTIUM_PLATE,
-      SlimefunItems.PROGRAMMABLE_ANDROID_2_FISHERMAN, SupremeComponents.ADAMANTIUM_PLATE};
+  public static final ItemStack[] RECIPE_VIRTUAL_AQUARIUM_MACHINE = new ItemStack[]{SupremeItems.SYNTHETIC_RUBY,
+      new ItemStack(Material.FISHING_ROD), SupremeItems.SYNTHETIC_RUBY, SupremeItems.INDUCTIVE_MACHINE,
+      SupremeItems.PETRIFIER_MACHINE, SupremeItems.INDUCTIVE_MACHINE, SupremeItems.ADAMANTIUM_PLATE,
+      SlimefunItems.PROGRAMMABLE_ANDROID_2_FISHERMAN, SupremeItems.ADAMANTIUM_PLATE};
 
-  public static final SlimefunItemStack VIRTUAL_AQUARIUM_MACHINE_II = new SupremeItemStack(
-      "SUPREME_VIRTUAL_AQUARIUM_II", Material.DARK_PRISMARINE, "&bVirtual Aquarium II", "",
-      "&fThis machine allows you to collect", "&f items that are collected at sea.", "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(5),
-      LoreBuilder.powerBuffer(5000), LoreBuilder.powerPerSecond(100), "", "&3Supreme Machine");
   public static final ItemStack[] RECIPE_VIRTUAL_AQUARIUM_MACHINE_II = new ItemStack[]{
-      SupremeComponents.CONVEYANCE_MACHINE, SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CONVEYANCE_MACHINE,
-      SupremeComponents.INDUCTOR_MACHINE, VirtualAquarium.VIRTUAL_AQUARIUM_MACHINE, SupremeComponents.INDUCTOR_MACHINE,
-      SupremeComponents.THORNERITE, SupremeCetrus.CETRUS_IGNIS, SupremeComponents.THORNERITE};
+      SupremeItems.CONVEYANCE_MACHINE, SupremeItems.CETRUS_LUMIUM, SupremeItems.CONVEYANCE_MACHINE,
+      SupremeItems.INDUCTOR_MACHINE, SupremeItems.VIRTUAL_AQUARIUM_MACHINE, SupremeItems.INDUCTOR_MACHINE,
+      SupremeItems.THORNERITE, SupremeItems.CETRUS_IGNIS, SupremeItems.THORNERITE};
 
-  public static final SlimefunItemStack VIRTUAL_AQUARIUM_MACHINE_III = new SupremeItemStack(
-      "SUPREME_VIRTUAL_AQUARIUM_III", Material.DARK_PRISMARINE, "&bVirtual Aquarium III", "",
-      "&fThis machine allows you to collect", "&f items that are collected at sea.", "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(15),
-      LoreBuilder.powerBuffer(15000), LoreBuilder.powerPerSecond(300), "", "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_VIRTUAL_AQUARIUM_MACHINE_III = new ItemStack[]{SupremeComponents.THORNERITE,
-      SupremeAttribute.getMagic(), SupremeComponents.THORNERITE, SupremeComponents.SUPREME,
-      VirtualAquarium.VIRTUAL_AQUARIUM_MACHINE_II, SupremeComponents.SUPREME, SupremeComponents.CRYSTALLIZER_MACHINE,
-      SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CRYSTALLIZER_MACHINE};
+  public static final ItemStack[] RECIPE_VIRTUAL_AQUARIUM_MACHINE_III = new ItemStack[]{SupremeItems.THORNERITE,
+      SupremeAttribute.getMagic(), SupremeItems.THORNERITE, SupremeItems.SUPREME,
+      SupremeItems.VIRTUAL_AQUARIUM_MACHINE_II, SupremeItems.SUPREME, SupremeItems.CRYSTALLIZER_MACHINE,
+      SupremeItems.CETRUS_LUMIUM, SupremeItems.CRYSTALLIZER_MACHINE};
 
   public static Map<Block, MachineRecipe> processing = new HashMap<>();
   public static Map<Block, Integer> progress = new HashMap<>();
-  private final Set<VirtualAquariumMachineRecipe> virtualAquariumMachineRecipe = new HashSet();
+  private final Set<VirtualAquariumMachineRecipe> virtualAquariumMachineRecipe = new HashSet<>();
 
   @ParametersAreNonnullByDefault
   public VirtualAquarium(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {

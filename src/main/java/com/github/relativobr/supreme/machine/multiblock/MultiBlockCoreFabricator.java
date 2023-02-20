@@ -1,10 +1,10 @@
 package com.github.relativobr.supreme.machine.multiblock;
 
 import com.github.relativobr.supreme.Supreme;
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.util.ItemGroups;
-import com.github.relativobr.supreme.util.SupremeItemStack;
+
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
 import io.github.thebusybiscuit.slimefun4.core.multiblocks.MultiBlockMachine;
@@ -26,14 +26,12 @@ import org.bukkit.inventory.ItemStack;
 
 public class MultiBlockCoreFabricator extends MultiBlockMachine implements NotPlaceable {
 
-  public static final SlimefunItemStack CORE_FABRICATOR = new SupremeItemStack("SUPREME_MULTIBLOCK_CORE",
-      Material.SHROOMLIGHT, "&eCore Fabricator", "", "&7&oYou can craft core here!", "", "&aMultiBlock Machine");
   public static final RecipeType MACHINE_CORE_FABRICATOR = new RecipeType(
-      new NamespacedKey(Supreme.inst(), "SUPREME_MULTIBLOCK_CORE_KEY"), CORE_FABRICATOR);
+      new NamespacedKey(Supreme.inst(), "SUPREME_MULTIBLOCK_CORE_KEY"), SupremeItems.CORE_FABRICATOR);
 
   @ParametersAreNonnullByDefault
   public MultiBlockCoreFabricator() {
-    super(ItemGroups.MACHINES_CATEGORY, CORE_FABRICATOR,
+    super(ItemGroups.MACHINES_CATEGORY, SupremeItems.CORE_FABRICATOR,
         new ItemStack[]{new ItemStack(Material.SHROOMLIGHT), new ItemStack(Material.ORANGE_STAINED_GLASS),
             new ItemStack(Material.SHROOMLIGHT), new ItemStack(Material.IRON_BARS),
             new ItemStack(Material.IRON_TRAPDOOR), new ItemStack(Material.IRON_BARS),

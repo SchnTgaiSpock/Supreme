@@ -1,26 +1,20 @@
 package com.github.relativobr.supreme.machine.tech;
 
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.generic.machine.SimpleItemContainerMachine;
 import com.github.relativobr.supreme.generic.recipe.InventoryRecipe;
 import com.github.relativobr.supreme.generic.recipe.AbstractItemRecipe;
-import com.github.relativobr.supreme.resource.SupremeComponents;
 import com.github.relativobr.supreme.resource.magical.SupremeAttribute;
-import com.github.relativobr.supreme.resource.magical.SupremeCetrus;
-import com.github.relativobr.supreme.resource.magical.SupremeCore;
 import com.github.relativobr.supreme.util.ItemGroups;
-import com.github.relativobr.supreme.util.SupremeItemStack;
-import com.github.relativobr.supreme.util.UtilEnergy;
+
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Radioactive;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Radioactivity;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,35 +39,20 @@ import org.springframework.scheduling.annotation.Async;
 @Async
 public class TechRobotic extends SimpleItemContainerMachine implements Radioactive {
 
-  public static final SlimefunItemStack TECH_ROBOTIC = new SupremeItemStack("SUPREME_TECH_ROBOTIC",
-      Material.POLISHED_BLACKSTONE, "&bTech Robotic", "", "&fUse beginner level robots ",
-      "&fto progress to higher levels", "&fneed 64x to upgrade", "", LoreBuilder.radioactive(Radioactivity.VERY_HIGH), "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), UtilEnergy.energyPowerPerSecond(500), "",
-      "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_TECH_ROBOTIC = {SupremeComponents.INDUCTIVE_MACHINE,
-      SupremeComponents.SYNTHETIC_RUBY, SupremeComponents.INDUCTIVE_MACHINE, SlimefunItems.REINFORCED_PLATE,
-      SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.REINFORCED_PLATE, SupremeComponents.RUSTLESS_MACHINE,
-      SupremeCore.CORE_OF_BLOCK, SupremeComponents.RUSTLESS_MACHINE};
+  public static final ItemStack[] RECIPE_TECH_ROBOTIC = {SupremeItems.INDUCTIVE_MACHINE,
+      SupremeItems.SYNTHETIC_RUBY, SupremeItems.INDUCTIVE_MACHINE, SlimefunItems.REINFORCED_PLATE,
+      SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.REINFORCED_PLATE, SupremeItems.RUSTLESS_MACHINE,
+      SupremeItems.CORE_OF_BLOCK, SupremeItems.RUSTLESS_MACHINE};
 
-  public static final SlimefunItemStack TECH_ROBOTIC_II = new SupremeItemStack("SUPREME_TECH_ROBOTIC_II",
-      Material.POLISHED_BLACKSTONE, "&bTech Robotic II", "", "&fUse beginner level robots ",
-      "&fto progress to higher levels", "&fneed 32x to upgrade", "", LoreBuilder.radioactive(Radioactivity.VERY_HIGH), "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), UtilEnergy.energyPowerPerSecond(500), "",
-      "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_TECH_ROBOTIC_II = new ItemStack[]{SupremeComponents.CONVEYANCE_MACHINE,
-      SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CONVEYANCE_MACHINE, SupremeComponents.INDUCTOR_MACHINE,
-      TechRobotic.TECH_ROBOTIC, SupremeComponents.INDUCTOR_MACHINE, SupremeComponents.THORNERITE,
-      SupremeCetrus.CETRUS_IGNIS, SupremeComponents.THORNERITE};
+  public static final ItemStack[] RECIPE_TECH_ROBOTIC_II = new ItemStack[]{SupremeItems.CONVEYANCE_MACHINE,
+      SupremeItems.CETRUS_LUMIUM, SupremeItems.CONVEYANCE_MACHINE, SupremeItems.INDUCTOR_MACHINE,
+      SupremeItems.TECH_ROBOTIC, SupremeItems.INDUCTOR_MACHINE, SupremeItems.THORNERITE,
+      SupremeItems.CETRUS_IGNIS, SupremeItems.THORNERITE};
 
-  public static final SlimefunItemStack TECH_ROBOTIC_III = new SupremeItemStack("SUPREME_TECH_ROBOTIC_III",
-      Material.POLISHED_BLACKSTONE, "&bTech Robotic III", "", "&fUse beginner level robots ",
-      "&fto progress to higher levels", "&fneed 16x to upgrade", "", LoreBuilder.radioactive(Radioactivity.VERY_HIGH), "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), UtilEnergy.energyPowerPerSecond(500), "",
-      "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_TECH_ROBOTIC_III = new ItemStack[]{SupremeComponents.THORNERITE,
-      SupremeAttribute.getImpetus(), SupremeComponents.THORNERITE, SupremeComponents.SUPREME,
-      TechRobotic.TECH_ROBOTIC_II, SupremeComponents.SUPREME, SupremeComponents.CRYSTALLIZER_MACHINE,
-      SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CRYSTALLIZER_MACHINE};
+  public static final ItemStack[] RECIPE_TECH_ROBOTIC_III = new ItemStack[]{SupremeItems.THORNERITE,
+      SupremeAttribute.getImpetus(), SupremeItems.THORNERITE, SupremeItems.SUPREME,
+      SupremeItems.TECH_ROBOTIC_II, SupremeItems.SUPREME, SupremeItems.CRYSTALLIZER_MACHINE,
+      SupremeItems.CETRUS_LUMIUM, SupremeItems.CRYSTALLIZER_MACHINE};
 
   public static final List<AbstractItemRecipe> recipes = new ArrayList<>();
   private Map<Block, ItemStack> processing = new HashMap<Block, ItemStack>();
@@ -255,7 +234,7 @@ public class TechRobotic extends SimpleItemContainerMachine implements Radioacti
   @Nonnull
   @Override
   public List<ItemStack> getDisplayRecipes() {
-    List<ItemStack> displayRecipes = new ArrayList();
+    List<ItemStack> displayRecipes = new ArrayList<>();
     this.recipes
         .stream().filter(Objects::nonNull)
         .forEach(recipe -> {

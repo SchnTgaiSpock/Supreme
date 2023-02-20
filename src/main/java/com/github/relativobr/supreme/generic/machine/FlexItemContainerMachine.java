@@ -24,7 +24,7 @@ public class FlexItemContainerMachine extends MediumContainerMachine {
     @Nonnull
     @Override
     public List<ItemStack> getDisplayRecipes() {
-        List<ItemStack> displayRecipes = new ArrayList();
+        List<ItemStack> displayRecipes = new ArrayList<>();
         machineRecipes.forEach(recipe -> {
             displayRecipes.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
             displayRecipes.add(recipe.getFirstItemOutput());

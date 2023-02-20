@@ -1,18 +1,15 @@
 package com.github.relativobr.supreme.machine;
 
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.generic.machine.SimpleItemWithLargeContainerMachine;
 import com.github.relativobr.supreme.generic.recipe.AbstractItemRecipe;
-import com.github.relativobr.supreme.resource.SupremeComponents;
 import com.github.relativobr.supreme.resource.magical.SupremeAttribute;
-import com.github.relativobr.supreme.resource.magical.SupremeCetrus;
-import com.github.relativobr.supreme.util.SupremeItemStack;
+
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.bukkit.Material;
@@ -22,32 +19,20 @@ import org.springframework.scheduling.annotation.Async;
 @Async
 public class ForgeMagical extends SimpleItemWithLargeContainerMachine {
 
-  public static final SlimefunItemStack FORGE_MAGICAL_MACHINE = new SupremeItemStack("SUPREME_FORGE_MAGICAL_I",
-      Material.ENCHANTING_TABLE, "&bForge Magical", "", "&fThis machine allows you to", "&fforge magical resources.",
-      "", LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE), LoreBuilder.speed(1),
-      LoreBuilder.powerBuffer(1000), LoreBuilder.powerPerSecond(20), "", "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_FORGE_MAGICAL_MACHINE = new ItemStack[]{SupremeComponents.RUSTLESS_MACHINE,
-      new ItemStack(Material.ENCHANTING_TABLE), SupremeComponents.RUSTLESS_MACHINE, SupremeComponents.INDUCTIVE_MACHINE,
-      SupremeComponents.SYNTHETIC_RUBY, SupremeComponents.INDUCTIVE_MACHINE, SlimefunItems.ELECTRIC_GOLD_PAN_3,
+  public static final ItemStack[] RECIPE_FORGE_MAGICAL_MACHINE = new ItemStack[]{SupremeItems.RUSTLESS_MACHINE,
+      new ItemStack(Material.ENCHANTING_TABLE), SupremeItems.RUSTLESS_MACHINE, SupremeItems.INDUCTIVE_MACHINE,
+      SupremeItems.SYNTHETIC_RUBY, SupremeItems.INDUCTIVE_MACHINE, SlimefunItems.ELECTRIC_GOLD_PAN_3,
       SlimefunItems.PROGRAMMABLE_ANDROID_3, SlimefunItems.ELECTRIC_ORE_GRINDER_3};
 
-  public static final SlimefunItemStack FORGE_MAGICAL_MACHINE_II = new SupremeItemStack("SUPREME_FORGE_MAGICAL_II",
-      Material.ENCHANTING_TABLE, "&bForge Magical II", "", "&fThis machine allows you to", "&fforge magical resources.",
-      "", LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(5),
-      LoreBuilder.powerBuffer(5000), LoreBuilder.powerPerSecond(100), "", "&3Supreme Machine");
   public static final ItemStack[] RECIPE_FORGE_MAGICAL_MACHINE_II = new ItemStack[]{
-      SupremeComponents.CONVEYANCE_MACHINE, SupremeCetrus.CETRUS_LUX, SupremeComponents.CONVEYANCE_MACHINE,
-      SupremeComponents.INDUCTOR_MACHINE, ForgeMagical.FORGE_MAGICAL_MACHINE, SupremeComponents.INDUCTOR_MACHINE,
-      SupremeComponents.THORNERITE, SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.THORNERITE};
+      SupremeItems.CONVEYANCE_MACHINE, SupremeItems.CETRUS_LUX, SupremeItems.CONVEYANCE_MACHINE,
+      SupremeItems.INDUCTOR_MACHINE, SupremeItems.FORGE_MAGICAL_MACHINE, SupremeItems.INDUCTOR_MACHINE,
+      SupremeItems.THORNERITE, SupremeItems.CETRUS_LUMIUM, SupremeItems.THORNERITE};
 
-  public static final SlimefunItemStack FORGE_MAGICAL_MACHINE_III = new SupremeItemStack("SUPREME_FORGE_MAGICAL_III",
-      Material.ENCHANTING_TABLE, "&bForge Magical III", "", "&fThis machine allows you to",
-      "&fforge magical resources.", "", LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
-      LoreBuilder.speed(15), LoreBuilder.powerBuffer(15000), LoreBuilder.powerPerSecond(300), "", "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_FORGE_MAGICAL_MACHINE_III = new ItemStack[]{SupremeComponents.THORNERITE,
-      SupremeAttribute.getMagic(), SupremeComponents.THORNERITE, SupremeComponents.SUPREME,
-      ForgeMagical.FORGE_MAGICAL_MACHINE_II, SupremeComponents.SUPREME, SupremeComponents.CRYSTALLIZER_MACHINE,
-      SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CRYSTALLIZER_MACHINE};
+  public static final ItemStack[] RECIPE_FORGE_MAGICAL_MACHINE_III = new ItemStack[]{SupremeItems.THORNERITE,
+      SupremeAttribute.getMagic(), SupremeItems.THORNERITE, SupremeItems.SUPREME,
+      SupremeItems.FORGE_MAGICAL_MACHINE_II, SupremeItems.SUPREME, SupremeItems.CRYSTALLIZER_MACHINE,
+      SupremeItems.CETRUS_LUMIUM, SupremeItems.CRYSTALLIZER_MACHINE};
 
   public static final AbstractItemRecipe RECIPE_FORGE_MAGICAL_GRAVEL = new AbstractItemRecipe(
       new ItemStack(Material.COBBLESTONE, 32), new ItemStack(Material.GRAVEL, 32));

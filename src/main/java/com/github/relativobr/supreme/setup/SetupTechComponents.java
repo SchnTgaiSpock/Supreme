@@ -6,6 +6,7 @@ import static com.github.relativobr.supreme.util.RegisterItem.registerGrindStone
 import static com.github.relativobr.supreme.util.RegisterItem.registerTechMutation;
 
 import com.github.relativobr.supreme.Supreme;
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.machine.tech.TechMutation;
 import com.github.relativobr.supreme.resource.SupremeComponents;
 import com.github.relativobr.supreme.resource.mobtech.BeeTech;
@@ -22,26 +23,26 @@ public class SetupTechComponents {
 
     if (supremeOptions.isEnableTech()) {
 
-      registerEnhancedCraft(SupremeComponents.CENTER_CARD_SIMPLE, SupremeComponents.RECIPE_CENTER_CARD_SIMPLE);
-      registerEnhancedCraft(SupremeComponents.CENTER_CARD_ADVANCED, SupremeComponents.RECIPE_CENTER_CARD_ADVANCED);
-      registerEnhancedCraft(SupremeComponents.CENTER_CARD_ULTIMATE, SupremeComponents.RECIPE_CENTER_CARD_ULTIMATE);
+      registerEnhancedCraft(SupremeItems.CENTER_CARD_SIMPLE, SupremeComponents.RECIPE_CENTER_CARD_SIMPLE);
+      registerEnhancedCraft(SupremeItems.CENTER_CARD_ADVANCED, SupremeComponents.RECIPE_CENTER_CARD_ADVANCED);
+      registerEnhancedCraft(SupremeItems.CENTER_CARD_ULTIMATE, SupremeComponents.RECIPE_CENTER_CARD_ULTIMATE);
 
-      registerGrindStone(SupremeComponents.DUST_NETHERITE, SupremeComponents.RECIPE_DUST_NETHERITE, 4);
-      registerGrindStone(SupremeComponents.DUST_GLOW_INK, SupremeComponents.RECIPE_DUST_GLOW_INK, 4);
-      registerGrindStone(SupremeComponents.DUST_AMETHYST, SupremeComponents.RECIPE_DUST_AMETHYST, 4);
+      registerGrindStone(SupremeItems.DUST_NETHERITE, SupremeComponents.RECIPE_DUST_NETHERITE, 4);
+      registerGrindStone(SupremeItems.DUST_GLOW_INK, SupremeComponents.RECIPE_DUST_GLOW_INK, 4);
+      registerGrindStone(SupremeItems.DUST_AMETHYST, SupremeComponents.RECIPE_DUST_AMETHYST, 4);
 
-      registerTechMutation(SupremeComponents.GENE_BERSERK);
-      registerTechMutation(SupremeComponents.GENE_LUCK);
-      registerTechMutation(SupremeComponents.GENE_INTELLIGENCE);
+      registerTechMutation(SupremeItems.GENE_BERSERK);
+      registerTechMutation(SupremeItems.GENE_LUCK);
+      registerTechMutation(SupremeItems.GENE_INTELLIGENCE);
 
-      registerEnhancedCraft(SupremeComponents.EMPTY_MOBTECH, SupremeComponents.RECIPE_EMPTY_MOBTECH);
+      registerEnhancedCraft(SupremeItems.EMPTY_MOBTECH, SupremeComponents.RECIPE_EMPTY_MOBTECH);
 
-      TechMutation.addRecipeTechMutation(SupremeComponents.DUST_NETHERITE, SlimefunItems.FIRE_RUNE,
-          SupremeComponents.GENE_BERSERK);
-      TechMutation.addRecipeTechMutation(SupremeComponents.DUST_GLOW_INK, SlimefunItems.LIGHTNING_RUNE,
-          SupremeComponents.GENE_LUCK);
-      TechMutation.addRecipeTechMutation(SupremeComponents.DUST_AMETHYST, SlimefunItems.RAINBOW_RUNE,
-          SupremeComponents.GENE_INTELLIGENCE);
+      TechMutation.addRecipeTechMutation(SupremeItems.DUST_NETHERITE, SlimefunItems.FIRE_RUNE,
+          SupremeItems.GENE_BERSERK);
+      TechMutation.addRecipeTechMutation(SupremeItems.DUST_GLOW_INK, SlimefunItems.LIGHTNING_RUNE,
+          SupremeItems.GENE_LUCK);
+      TechMutation.addRecipeTechMutation(SupremeItems.DUST_AMETHYST, SlimefunItems.RAINBOW_RUNE,
+          SupremeItems.GENE_INTELLIGENCE);
       TechMutation.addRecipeTechMutation(SlimefunItems.URANIUM, SlimefunItems.URANIUM, SlimefunItems.NEPTUNIUM);
       TechMutation.addRecipeTechMutation(SlimefunItems.NEPTUNIUM, SlimefunItems.NEPTUNIUM, SlimefunItems.PLUTONIUM);
       TechMutation.addRecipeTechMutation(SlimefunItems.PLUTONIUM, SlimefunItems.URANIUM, SlimefunItems.BOOSTED_URANIUM);

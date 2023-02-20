@@ -1,26 +1,19 @@
 package com.github.relativobr.supreme.machine.tech;
 
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.generic.machine.SimpleItemContainerMachine;
 import com.github.relativobr.supreme.generic.recipe.InventoryRecipe;
-import com.github.relativobr.supreme.resource.SupremeComponents;
 import com.github.relativobr.supreme.resource.magical.SupremeAttribute;
-import com.github.relativobr.supreme.resource.magical.SupremeCetrus;
-import com.github.relativobr.supreme.resource.magical.SupremeCore;
 import com.github.relativobr.supreme.util.ItemGroups;
-import com.github.relativobr.supreme.util.SupremeItemStack;
-import com.github.relativobr.supreme.util.UtilEnergy;
 import com.github.relativobr.supreme.util.UtilMachine;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Radioactive;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Radioactivity;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,35 +39,20 @@ import org.springframework.scheduling.annotation.Async;
 @Async
 public class TechMutation extends SimpleItemContainerMachine implements Radioactive {
 
-  public static final SlimefunItemStack TECH_MUTATION_I = new SupremeItemStack("SUPREME_TECH_MUTATION_I",
-      Material.SLIME_BLOCK, "&bTech Mutation", "", "&fUse generator mutation ", "&fto progress to higher levels", "",
-      LoreBuilder.radioactive(Radioactivity.VERY_HIGH), "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), UtilEnergy.energyPowerPerSecond(500), "",
-      "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_TECH_MUTATION_I = {SupremeComponents.INDUCTIVE_MACHINE,
-      SupremeComponents.SYNTHETIC_RUBY, SupremeComponents.INDUCTIVE_MACHINE, SlimefunItems.REINFORCED_PLATE,
-      SlimefunItems.NUCLEAR_REACTOR, SlimefunItems.REINFORCED_PLATE, SupremeComponents.RUSTLESS_MACHINE,
-      SupremeCore.CORE_OF_DEATH, SupremeComponents.RUSTLESS_MACHINE};
+  public static final ItemStack[] RECIPE_TECH_MUTATION_I = {SupremeItems.INDUCTIVE_MACHINE,
+      SupremeItems.SYNTHETIC_RUBY, SupremeItems.INDUCTIVE_MACHINE, SlimefunItems.REINFORCED_PLATE,
+      SlimefunItems.NUCLEAR_REACTOR, SlimefunItems.REINFORCED_PLATE, SupremeItems.RUSTLESS_MACHINE,
+      SupremeItems.CORE_OF_DEATH, SupremeItems.RUSTLESS_MACHINE};
 
-  public static final SlimefunItemStack TECH_MUTATION_II = new SupremeItemStack("SUPREME_TECH_MUTATION_II",
-      Material.SLIME_BLOCK, "&bTech Mutation II", "", "&fUse generator mutation ", "&fto progress to higher levels", "",
-      "&fChance factor multiplied by 2x", "", LoreBuilder.radioactive(Radioactivity.VERY_HIGH), "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), UtilEnergy.energyPowerPerSecond(500), "",
-      "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_TECH_MUTATION_II = new ItemStack[]{SupremeComponents.CONVEYANCE_MACHINE,
-      SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CONVEYANCE_MACHINE, SupremeComponents.INDUCTOR_MACHINE,
-      TechMutation.TECH_MUTATION_I, SupremeComponents.INDUCTOR_MACHINE, SupremeComponents.THORNERITE,
-      SupremeCetrus.CETRUS_IGNIS, SupremeComponents.THORNERITE};
+  public static final ItemStack[] RECIPE_TECH_MUTATION_II = new ItemStack[]{SupremeItems.CONVEYANCE_MACHINE,
+      SupremeItems.CETRUS_LUMIUM, SupremeItems.CONVEYANCE_MACHINE, SupremeItems.INDUCTOR_MACHINE,
+      SupremeItems.TECH_MUTATION_I, SupremeItems.INDUCTOR_MACHINE, SupremeItems.THORNERITE,
+      SupremeItems.CETRUS_IGNIS, SupremeItems.THORNERITE};
 
-  public static final SlimefunItemStack TECH_MUTATION_III = new SupremeItemStack("SUPREME_TECH_MUTATION_III",
-      Material.SLIME_BLOCK, "&bTech Mutation III", "", "&fUse generator mutation ", "&fto progress to higher levels",
-      "", "&fChance factor multiplied by 4x", "", LoreBuilder.radioactive(Radioactivity.VERY_HIGH), "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), UtilEnergy.energyPowerPerSecond(500), "",
-      "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_TECH_MUTATION_III = new ItemStack[]{SupremeComponents.THORNERITE,
-      SupremeAttribute.getImpetus(), SupremeComponents.THORNERITE, SupremeComponents.SUPREME,
-      TechMutation.TECH_MUTATION_II, SupremeComponents.SUPREME, SupremeComponents.CRYSTALLIZER_MACHINE,
-      SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CRYSTALLIZER_MACHINE};
+  public static final ItemStack[] RECIPE_TECH_MUTATION_III = new ItemStack[]{SupremeItems.THORNERITE,
+      SupremeAttribute.getImpetus(), SupremeItems.THORNERITE, SupremeItems.SUPREME,
+      SupremeItems.TECH_MUTATION_II, SupremeItems.SUPREME, SupremeItems.CRYSTALLIZER_MACHINE,
+      SupremeItems.CETRUS_LUMIUM, SupremeItems.CRYSTALLIZER_MACHINE};
   public static final List<MobTechMutationGeneric> recipes = new ArrayList<>();
   private Map<Block, MobTechMutationGeneric> processing = new HashMap<Block, MobTechMutationGeneric>();
   private Map<Block, Integer> progressTime = new HashMap<Block, Integer>();
@@ -270,7 +248,7 @@ public class TechMutation extends SimpleItemContainerMachine implements Radioact
   @Override
   public List<ItemStack> getDisplayRecipes() {
     final CustomItemStack separator = new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " ");
-    List<ItemStack> displayRecipes = new ArrayList();
+    List<ItemStack> displayRecipes = new ArrayList<>();
     this.recipes
         .stream().filter(Objects::nonNull)
         .forEach(recipe -> {

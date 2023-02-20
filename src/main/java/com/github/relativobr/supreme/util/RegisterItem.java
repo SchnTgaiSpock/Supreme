@@ -1,9 +1,10 @@
 package com.github.relativobr.supreme.util;
 
 import com.github.relativobr.supreme.Supreme;
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.machine.multiblock.MultiBlockCoreFabricator;
 import com.github.relativobr.supreme.machine.multiblock.MultiBlockMagicalFabricator;
-import com.github.relativobr.supreme.machine.tech.TechMutation;
+
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -80,7 +81,7 @@ public class RegisterItem {
   @ParametersAreNonnullByDefault
   public static void registerTechMutation(SlimefunItemStack itemStack) {
     new UnplaceableBlock(ItemGroups.COMPONENTS_CATEGORY, itemStack, RecipeType.NULL,
-        new ItemStack[]{TechMutation.TECH_MUTATION_I}).register(Supreme.inst());
+        new ItemStack[]{SupremeItems.TECH_MUTATION_I}).register(Supreme.inst());
   }
 
 }

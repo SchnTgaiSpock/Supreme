@@ -1,63 +1,44 @@
 package com.github.relativobr.supreme.machine.multiblock;
 
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.generic.machine.MediumContainerMachine;
 import com.github.relativobr.supreme.generic.recipe.AbstractItemRecipe;
 import com.github.relativobr.supreme.generic.recipe.CustomCoreRecipe;
-import com.github.relativobr.supreme.resource.SupremeComponents;
 import com.github.relativobr.supreme.resource.core.SupremeCoreAlloy;
 import com.github.relativobr.supreme.resource.core.SupremeCoreBlock;
 import com.github.relativobr.supreme.resource.core.SupremeCoreColor;
 import com.github.relativobr.supreme.resource.core.SupremeCoreDeath;
 import com.github.relativobr.supreme.resource.core.SupremeCoreLife;
 import com.github.relativobr.supreme.resource.core.SupremeCoreNature;
-import com.github.relativobr.supreme.resource.magical.SupremeCetrus;
-import com.github.relativobr.supreme.util.SupremeItemStack;
-import com.github.relativobr.supreme.util.UtilEnergy;
+
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.ParametersAreNonnullByDefault;
-import org.bukkit.Material;
+
 import org.bukkit.inventory.ItemStack;
 
 public class ElectricCoreFabricator extends MediumContainerMachine {
 
-  public static final SlimefunItemStack ELECTRIC_CORE_MACHINE = new SupremeItemStack("SUPREME_ELECTRIC_CORE_I",
-      Material.SHROOMLIGHT, "&bElectric Core Machine", "", "&fCraft resource of core", "",
-      LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE), LoreBuilder.speed(1),
-      UtilEnergy.energyPowerPerSecond(20), "", "&3Supreme Machine");
-
-  public static final ItemStack[] RECIPE_ELECTRIC_CORE_MACHINE = new ItemStack[]{SupremeComponents.RUSTLESS_MACHINE,
-      SlimefunItems.PROGRAMMABLE_ANDROID_3, SupremeComponents.RUSTLESS_MACHINE, SupremeComponents.INDUCTIVE_MACHINE,
-      SupremeComponents.SYNTHETIC_RUBY, SupremeComponents.INDUCTIVE_MACHINE, SlimefunItems.ELECTRIC_MOTOR,
+  public static final ItemStack[] RECIPE_ELECTRIC_CORE_MACHINE = new ItemStack[]{SupremeItems.RUSTLESS_MACHINE,
+      SlimefunItems.PROGRAMMABLE_ANDROID_3, SupremeItems.RUSTLESS_MACHINE, SupremeItems.INDUCTIVE_MACHINE,
+      SupremeItems.SYNTHETIC_RUBY, SupremeItems.INDUCTIVE_MACHINE, SlimefunItems.ELECTRIC_MOTOR,
       SlimefunItems.CARBONADO_EDGED_CAPACITOR, SlimefunItems.ELECTRIC_MOTOR};
 
-  public static final SlimefunItemStack ELECTRIC_CORE_MACHINE_II = new SupremeItemStack("SUPREME_ELECTRIC_CORE_II",
-      Material.SHROOMLIGHT, "&bElectric Core Machine II", "", "&fAdvanced craft resource of core", "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(5),
-      UtilEnergy.energyPowerPerSecond(100), "", "&3Supreme Machine");
-
   public static final ItemStack[] RECIPE_ELECTRIC_CORE_MACHINE_II = new ItemStack[]{
-      SupremeComponents.CONVEYANCE_MACHINE, SupremeCetrus.CETRUS_LUX, SupremeComponents.CONVEYANCE_MACHINE,
-      SupremeComponents.INDUCTOR_MACHINE, ElectricCoreFabricator.ELECTRIC_CORE_MACHINE,
-      SupremeComponents.INDUCTOR_MACHINE, SupremeComponents.BLEND_MACHINE, SupremeCetrus.CETRUS_IGNIS,
-      SupremeComponents.BLEND_MACHINE};
+      SupremeItems.CONVEYANCE_MACHINE, SupremeItems.CETRUS_LUX, SupremeItems.CONVEYANCE_MACHINE,
+      SupremeItems.INDUCTOR_MACHINE, SupremeItems.ELECTRIC_CORE_MACHINE,
+      SupremeItems.INDUCTOR_MACHINE, SupremeItems.BLEND_MACHINE, SupremeItems.CETRUS_IGNIS,
+      SupremeItems.BLEND_MACHINE};
 
-  public static final SlimefunItemStack ELECTRIC_CORE_MACHINE_III = new SupremeItemStack("SUPREME_ELECTRIC_CORE_III",
-      Material.SHROOMLIGHT, "&bElectric Core Machine III", "", "&fAdvanced craft resource of core", "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(15),
-      UtilEnergy.energyPowerPerSecond(300), "", "&3Supreme Machine");
-
-  public static final ItemStack[] RECIPE_ELECTRIC_CORE_MACHINE_III = new ItemStack[]{SupremeComponents.THORNERITE,
-      SupremeCetrus.CETRUS_LUX, SupremeComponents.THORNERITE, SupremeComponents.SUPREME,
-      ElectricCoreFabricator.ELECTRIC_CORE_MACHINE_II, SupremeComponents.SUPREME,
-      SupremeComponents.CRYSTALLIZER_MACHINE, SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CRYSTALLIZER_MACHINE};
+  public static final ItemStack[] RECIPE_ELECTRIC_CORE_MACHINE_III = new ItemStack[]{SupremeItems.THORNERITE,
+      SupremeItems.CETRUS_LUX, SupremeItems.THORNERITE, SupremeItems.SUPREME,
+      SupremeItems.ELECTRIC_CORE_MACHINE_II, SupremeItems.SUPREME,
+      SupremeItems.CRYSTALLIZER_MACHINE, SupremeItems.CETRUS_LUMIUM, SupremeItems.CRYSTALLIZER_MACHINE};
 
   @ParametersAreNonnullByDefault
   public ElectricCoreFabricator(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {

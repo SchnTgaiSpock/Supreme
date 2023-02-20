@@ -1,26 +1,16 @@
 package com.github.relativobr.supreme.machine;
 
+import com.github.relativobr.supreme.SupremeItems;
 import com.github.relativobr.supreme.generic.machine.MediumContainerMachine;
 import com.github.relativobr.supreme.generic.recipe.AbstractItemRecipe;
-import com.github.relativobr.supreme.resource.SupremeComponents;
-import com.github.relativobr.supreme.resource.core.SupremeCoreAlloy;
-import com.github.relativobr.supreme.resource.core.SupremeCoreBlock;
-import com.github.relativobr.supreme.resource.core.SupremeCoreColor;
-import com.github.relativobr.supreme.resource.core.SupremeCoreDeath;
-import com.github.relativobr.supreme.resource.core.SupremeCoreLife;
 import com.github.relativobr.supreme.resource.magical.SupremeAttribute;
-import com.github.relativobr.supreme.resource.magical.SupremeCetrus;
-import com.github.relativobr.supreme.resource.magical.SupremeCore;
-import com.github.relativobr.supreme.util.SupremeItemStack;
-import com.github.relativobr.supreme.util.UtilEnergy;
+
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -32,93 +22,81 @@ import org.springframework.scheduling.annotation.Async;
 @Async
 public class Foundry extends MediumContainerMachine {
 
-  public static final SlimefunItemStack FOUNDRY_MACHINE = new SupremeItemStack("SUPREME_FOUNDRY_I", Material.GRINDSTONE,
-      "&bFoundry", "", "&fFoundry and Synthesizer Items", "",
-      LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE), LoreBuilder.speed(1),
-      UtilEnergy.energyPowerPerSecond(1000), "", "&3Supreme Machine");
   public static final ItemStack[] RECIPE_FOUNDRY_MACHINE = new ItemStack[]{SlimefunItems.ELECTRIC_INGOT_FACTORY_3,
       SlimefunItems.ELECTRIC_INGOT_FACTORY_3, SlimefunItems.ELECTRIC_INGOT_FACTORY_3,
-      SupremeComponents.INDUCTIVE_MACHINE, SupremeComponents.SYNTHETIC_RUBY, SupremeComponents.INDUCTIVE_MACHINE,
+      SupremeItems.INDUCTIVE_MACHINE, SupremeItems.SYNTHETIC_RUBY, SupremeItems.INDUCTIVE_MACHINE,
       SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.PROGRAMMABLE_ANDROID_3, SlimefunItems.ELECTRIC_SMELTERY_2};
 
-  public static final SlimefunItemStack FOUNDRY_MACHINE_II = new SupremeItemStack("SUPREME_FOUNDRY_II",
-      Material.GRINDSTONE, "&bFoundry II", "", "&fAdvanced Foundry and Synthesizer Items", "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(5),
-      UtilEnergy.energyPowerPerSecond(5000), "", "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_FOUNDRY_MACHINE_II = new ItemStack[]{SupremeComponents.BLEND_MACHINE,
-      SupremeCetrus.CETRUS_AQUA, SupremeComponents.BLEND_MACHINE, SupremeCetrus.CETRUS_VENTUS, Foundry.FOUNDRY_MACHINE,
-      SupremeCetrus.CETRUS_LUX, SupremeCore.CORE_OF_ALLOY, SupremeCetrus.CETRUS_IGNIS, SupremeCore.CORE_OF_ALLOY};
+  public static final ItemStack[] RECIPE_FOUNDRY_MACHINE_II = new ItemStack[]{SupremeItems.BLEND_MACHINE,
+      SupremeItems.CETRUS_AQUA, SupremeItems.BLEND_MACHINE, SupremeItems.CETRUS_VENTUS, SupremeItems.FOUNDRY_MACHINE,
+      SupremeItems.CETRUS_LUX, SupremeItems.CORE_OF_ALLOY, SupremeItems.CETRUS_IGNIS, SupremeItems.CORE_OF_ALLOY};
 
-  public static final SlimefunItemStack FOUNDRY_MACHINE_III = new SupremeItemStack("SUPREME_FOUNDRY_III",
-      Material.GRINDSTONE, "&bFoundry III", "", "&fAdvanced Foundry and Synthesizer Items", "",
-      LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE), LoreBuilder.speed(15),
-      UtilEnergy.energyPowerPerSecond(15000), "", "&3Supreme Machine");
-  public static final ItemStack[] RECIPE_FOUNDRY_MACHINE_III = new ItemStack[]{SupremeComponents.THORNERITE,
-      SupremeAttribute.getFortune(), SupremeComponents.THORNERITE, SupremeComponents.SUPREME,
-      Foundry.FOUNDRY_MACHINE_II, SupremeComponents.SUPREME, SupremeComponents.CRYSTALLIZER_MACHINE,
-      SupremeCetrus.CETRUS_LUMIUM, SupremeComponents.CRYSTALLIZER_MACHINE};
+  public static final ItemStack[] RECIPE_FOUNDRY_MACHINE_III = new ItemStack[]{SupremeItems.THORNERITE,
+      SupremeAttribute.getFortune(), SupremeItems.THORNERITE, SupremeItems.SUPREME,
+      SupremeItems.FOUNDRY_MACHINE_II, SupremeItems.SUPREME, SupremeItems.CRYSTALLIZER_MACHINE,
+      SupremeItems.CETRUS_LUMIUM, SupremeItems.CRYSTALLIZER_MACHINE};
 
   public static final AbstractItemRecipe RECIPE_BLISTERING_INGOT_3 = new AbstractItemRecipe(
-      new ItemStack[]{new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_EMERALD),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_EMERALD), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_EMERALD),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_EMERALD),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_EMERALD),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_EMERALD)},
+      new ItemStack[]{new ItemStack(SupremeItems.RESOURCE_CORE_EMERALD),
+          new ItemStack(SupremeItems.RESOURCE_CORE_EMERALD), new ItemStack(SupremeItems.RESOURCE_CORE_EMERALD),
+          new ItemStack(SupremeItems.RESOURCE_CORE_GOLD), new ItemStack(SupremeItems.RESOURCE_CORE_GOLD),
+          new ItemStack(SupremeItems.RESOURCE_CORE_GOLD), new ItemStack(SupremeItems.RESOURCE_CORE_EMERALD),
+          new ItemStack(SupremeItems.RESOURCE_CORE_EMERALD),
+          new ItemStack(SupremeItems.RESOURCE_CORE_EMERALD)},
       new SlimefunItemStack(SlimefunItems.BLISTERING_INGOT_3, 64));
   public static final AbstractItemRecipe RECIPE_REDSTONE_ALLOY = new AbstractItemRecipe(
-      new ItemStack[]{new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_REDSTONE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_REDSTONE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_REDSTONE), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_REDSTONE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_REDSTONE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_REDSTONE)},
+      new ItemStack[]{new ItemStack(SupremeItems.RESOURCE_CORE_REDSTONE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_REDSTONE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_REDSTONE), new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND),
+          new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND), new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND),
+          new ItemStack(SupremeItems.RESOURCE_CORE_REDSTONE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_REDSTONE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_REDSTONE)},
       new SlimefunItemStack(SlimefunItems.REDSTONE_ALLOY, 64));
   public static final AbstractItemRecipe RECIPE_HARDENED_METAL_INGOT = new AbstractItemRecipe(
-      new ItemStack[]{new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_LAPIS),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_LAPIS), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_LAPIS),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_LAPIS),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_LAPIS), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_LAPIS)},
+      new ItemStack[]{new ItemStack(SupremeItems.RESOURCE_CORE_LAPIS),
+          new ItemStack(SupremeItems.RESOURCE_CORE_LAPIS), new ItemStack(SupremeItems.RESOURCE_CORE_LAPIS),
+          new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND), new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND),
+          new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND), new ItemStack(SupremeItems.RESOURCE_CORE_LAPIS),
+          new ItemStack(SupremeItems.RESOURCE_CORE_LAPIS), new ItemStack(SupremeItems.RESOURCE_CORE_LAPIS)},
       new SlimefunItemStack(SlimefunItems.HARDENED_METAL_INGOT, 64));
   public static final AbstractItemRecipe RECIPE_REINFORCED_ALLOY_INGOT = new AbstractItemRecipe(
-      new ItemStack[]{new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_NETHERITE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_NETHERITE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_NETHERITE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_DIAMOND),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_NETHERITE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_NETHERITE),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_NETHERITE)},
+      new ItemStack[]{new ItemStack(SupremeItems.RESOURCE_CORE_NETHERITE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_NETHERITE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_NETHERITE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND), new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND),
+          new ItemStack(SupremeItems.RESOURCE_CORE_DIAMOND),
+          new ItemStack(SupremeItems.RESOURCE_CORE_NETHERITE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_NETHERITE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_NETHERITE)},
       new SlimefunItemStack(SlimefunItems.REINFORCED_ALLOY_INGOT, 64));
   public static final AbstractItemRecipe RECIPE_ENCHANTED_GOLDEN_APPLE = new AbstractItemRecipe(
-      new ItemStack[]{new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD),
-          new ItemStack(SupremeCoreLife.RESOURCE_CORE_APPLE), new ItemStack(SupremeCoreLife.RESOURCE_CORE_APPLE),
-          new ItemStack(SupremeCoreLife.RESOURCE_CORE_APPLE), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_GOLD)},
+      new ItemStack[]{new ItemStack(SupremeItems.RESOURCE_CORE_GOLD),
+          new ItemStack(SupremeItems.RESOURCE_CORE_GOLD), new ItemStack(SupremeItems.RESOURCE_CORE_GOLD),
+          new ItemStack(SupremeItems.RESOURCE_CORE_APPLE), new ItemStack(SupremeItems.RESOURCE_CORE_APPLE),
+          new ItemStack(SupremeItems.RESOURCE_CORE_APPLE), new ItemStack(SupremeItems.RESOURCE_CORE_GOLD),
+          new ItemStack(SupremeItems.RESOURCE_CORE_GOLD), new ItemStack(SupremeItems.RESOURCE_CORE_GOLD)},
       new ItemStack(Material.ENCHANTED_GOLDEN_APPLE, 64));
   public static final AbstractItemRecipe RECIPE_SOLAR_PANEL = new AbstractItemRecipe(
-      new ItemStack[]{new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_QUARTZ),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_QUARTZ), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_QUARTZ),
-          new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING), new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING),
-          new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_QUARTZ),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_QUARTZ), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_QUARTZ)},
+      new ItemStack[]{new ItemStack(SupremeItems.RESOURCE_CORE_QUARTZ),
+          new ItemStack(SupremeItems.RESOURCE_CORE_QUARTZ), new ItemStack(SupremeItems.RESOURCE_CORE_QUARTZ),
+          new ItemStack(SupremeItems.RESOURCE_CORE_STRING), new ItemStack(SupremeItems.RESOURCE_CORE_STRING),
+          new ItemStack(SupremeItems.RESOURCE_CORE_STRING), new ItemStack(SupremeItems.RESOURCE_CORE_QUARTZ),
+          new ItemStack(SupremeItems.RESOURCE_CORE_QUARTZ), new ItemStack(SupremeItems.RESOURCE_CORE_QUARTZ)},
       new SlimefunItemStack(SlimefunItems.SOLAR_PANEL, 64));
   public static final AbstractItemRecipe RECIPE_OIL_BUCKET = new AbstractItemRecipe(
-      new ItemStack[]{new ItemStack(SupremeCoreColor.RESOURCE_CORE_BLACK),
-          new ItemStack(SupremeCoreColor.RESOURCE_CORE_BLACK), new ItemStack(SupremeCoreColor.RESOURCE_CORE_BLACK),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_IRON), new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_IRON),
-          new ItemStack(SupremeCoreAlloy.RESOURCE_CORE_IRON), new ItemStack(SupremeCoreColor.RESOURCE_CORE_BLACK),
-          new ItemStack(SupremeCoreColor.RESOURCE_CORE_BLACK), new ItemStack(SupremeCoreColor.RESOURCE_CORE_BLACK)},
+      new ItemStack[]{new ItemStack(SupremeItems.RESOURCE_CORE_BLACK),
+          new ItemStack(SupremeItems.RESOURCE_CORE_BLACK), new ItemStack(SupremeItems.RESOURCE_CORE_BLACK),
+          new ItemStack(SupremeItems.RESOURCE_CORE_IRON), new ItemStack(SupremeItems.RESOURCE_CORE_IRON),
+          new ItemStack(SupremeItems.RESOURCE_CORE_IRON), new ItemStack(SupremeItems.RESOURCE_CORE_BLACK),
+          new ItemStack(SupremeItems.RESOURCE_CORE_BLACK), new ItemStack(SupremeItems.RESOURCE_CORE_BLACK)},
       new SlimefunItemStack(SlimefunItems.OIL_BUCKET, 64));
   public static final AbstractItemRecipe RECIPE_PLASTIC_SHEET = new AbstractItemRecipe(
-      new ItemStack[]{new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING),
-          new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING), new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING),
-          new ItemStack(SupremeCoreBlock.RESOURCE_CORE_GRAVEL), new ItemStack(SupremeCoreBlock.RESOURCE_CORE_GRAVEL),
-          new ItemStack(SupremeCoreBlock.RESOURCE_CORE_GRAVEL), new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING),
-          new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING), new ItemStack(SupremeCoreDeath.RESOURCE_CORE_STRING)},
+      new ItemStack[]{new ItemStack(SupremeItems.RESOURCE_CORE_STRING),
+          new ItemStack(SupremeItems.RESOURCE_CORE_STRING), new ItemStack(SupremeItems.RESOURCE_CORE_STRING),
+          new ItemStack(SupremeItems.RESOURCE_CORE_GRAVEL), new ItemStack(SupremeItems.RESOURCE_CORE_GRAVEL),
+          new ItemStack(SupremeItems.RESOURCE_CORE_GRAVEL), new ItemStack(SupremeItems.RESOURCE_CORE_STRING),
+          new ItemStack(SupremeItems.RESOURCE_CORE_STRING), new ItemStack(SupremeItems.RESOURCE_CORE_STRING)},
       new SlimefunItemStack(SlimefunItems.PLASTIC_SHEET, 64));
 
   public Foundry(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
@@ -141,7 +119,7 @@ public class Foundry extends MediumContainerMachine {
   @Nonnull
   @Override
   public List<ItemStack> getDisplayRecipes() {
-    List<ItemStack> displayRecipes = new ArrayList();
+    List<ItemStack> displayRecipes = new ArrayList<>();
     machineRecipes
         .stream().filter(Objects::nonNull)
         .forEach(recipe -> {
